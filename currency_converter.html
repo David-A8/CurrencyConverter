@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="converter.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Currency Converter</title>
+    <script src="converter.js" defer></script>
 </head>
 
 <body>
@@ -12,16 +14,23 @@
         <h1>Currency Converter</h1>
     </header>
     <fieldset>
-        <label>Convert From:</label>
-        <select id="currencyList" name="currency" required>
-            <option value="" disabled selected>Choose Currency</option>
-        </select>
-        <label>Enter Amount<input type="text" id="amountMoney" name="amountMoney"></label>
-        <label>Convert To:</label>
-        <select id="currenctyList" name="currency2" required>
-            <option value="" disabled selected>Choose Currency</option>
-        </select>
-        <input type="Convert" value="Convert currency">
+        <div id="from">
+            <label>Convert From:</label>
+            <select id="currencyList" name="currency" required>
+                <option value="" disabled selected>Choose Currency</option>
+            </select>
+        </div>
+        <div id="amount">
+            <label>Enter Amount <input type="text" id="amountMoney" name="amountMoney"></label>
+        </div>
+        <div id="to">
+            <label>Convert To:</label>
+            <select id="currenctyList" name="currency2" required>
+                <option value="" disabled selected>Choose Currency</option>
+            </select>
+        </div>
+        <p id="output">Result: </p>
+        <button id="convert" type="button" onclick='document.getElementById("output").innerHTML = "d"'>Convert</button>
     </fieldset>
 </body>
 
