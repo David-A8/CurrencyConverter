@@ -53,22 +53,22 @@ async function getRates(base = "USD") { //Function to get rates from the API bas
     return currencyRates;
 }
 
-function inputs() {
+function inputs() { // Function to get the user's inputs.
     let from = document.querySelector("#currencyList").value;
     let to = document.querySelector("#currencyList2").value;
     let amount = document.querySelector("#amountMoney").value;
-    convert(amount, from, to);
+    convert(amount, from, to); //Once we got the user's input, they are sent to the function convert
 }
 
-async function convert(amount, from, to) {
-    if (!baseRates[from]) {
+async function convert(amount, from, to) { //This function receives the amount, and both currencies to start converting
+    if (!baseRates[from]) { //If the rates of the currency received are not in the local database, they will be requested
         const newRates = await getRates(from);
-        baseRates[from] = newRates;
+        baseRates[from] = newRates; //The new rates are stored in the local database
     }
 
-    const rate = baseRates[from].rates[to];
-    const converted = rate * amount;
-    document.querySelector("#output").innerHTML = `${amount} ${from} are ${converted} ${to}`;
+    const rate = baseRates[from].rates[to]; //If the rates are in the local database, they are pulled
+    const converted = rate * amount; //The conversion is calculated
+    document.querySelector("#output").innerHTML = `${amount} ${from} are ${converted} ${to}`;//The outcome is displayed
 }
 
 
